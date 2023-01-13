@@ -53,6 +53,11 @@ body {
   background: #40414F;
 }
 
+/* modify the code so that the message have another background color */
+.ai .message {
+  background: #10a37f;
+}
+
 .chat {
   width: 100%;
   max-width: 1280px;
