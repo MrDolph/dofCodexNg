@@ -46,7 +46,7 @@ h1, p{
 
   -ms-overflow-style: none;
   scrollbar-width: scroll;
-
+  margin: 20px;
   padding-bottom: 20px;
   scroll-behavior: smooth;
 }
