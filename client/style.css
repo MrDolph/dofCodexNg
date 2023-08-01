@@ -10,6 +10,9 @@
 body {
   background: #343541;
 }
+.header{
+  position: fixed;
+}
 
 h1, p{
   display: flex;
