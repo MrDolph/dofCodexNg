@@ -13,7 +13,6 @@ body {
 .chat_header{
   position: absolute;
   width: 100%;
-  justify-content: center;
 }
 
 h1, p{
@@ -55,7 +54,6 @@ h1, p{
 /* hides scrollbar */
 #chat_container::-webkit-scrollbar {
   display: scroll;
-  margin-top: 20px;
 }
 
 .wrapper {
@@ -71,7 +69,6 @@ h1, p{
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -82,9 +79,7 @@ h1, p{
   width: 36px;
   height: 36px;
   border-radius: 5px;
-
   background: #5436DA;
-
   display: flex;
   justify-content: center;
   align-items: center;
