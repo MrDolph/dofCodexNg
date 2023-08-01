@@ -10,12 +10,13 @@
 body {
   background: #343541;
 }
+
 h1, p{
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  background: #ffffff;
+  position: absolute;
+  background: #fff;
 }
 
 #app {
@@ -134,10 +135,8 @@ form {
 
 textarea {
   width: 100%;
-
   color: #fff;
   font-size: 18px;
-
   padding: 10px;
   background: transparent;
   border-radius: 5px;
