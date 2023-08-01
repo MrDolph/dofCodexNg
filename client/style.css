@@ -12,6 +12,8 @@ body {
 }
 .header{
   position: absolute;
+  width: 100%;
+  justify-content: center;
 }
 
 h1, p{
