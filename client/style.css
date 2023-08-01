@@ -11,7 +11,7 @@ body {
   background: #343541;
 }
 .header{
-  position: fixed;
+  position: absolute;
 }
 
 h1, p{
