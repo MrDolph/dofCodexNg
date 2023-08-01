@@ -10,7 +10,7 @@
 body {
   background: #343541;
 }
-.header{
+.chat_header{
   position: absolute;
   width: 100%;
   justify-content: center;
