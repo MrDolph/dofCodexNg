@@ -1,7 +1,7 @@
 import express from 'express';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
-import OpenAI from 'openai';
+import { OpenAI } from 'openai'; // ← Correct import
 
 dotenv.config();
 
@@ -23,12 +23,7 @@ app.post('/', async (req, res) => {
 
     const chatCompletion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
-      messages: [
-        {
-          role: 'user',
-          content: prompt,
-        },
-      ],
+      messages: [{ role: 'user', content: prompt }],
       temperature: 0,
       max_tokens: 3000,
     });
