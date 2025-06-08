@@ -78,7 +78,11 @@ const handleSubmit = async (e) => {
   loader(messageDiv);
 
   try {
-    const response = await fetch('https://dofcodexng.onrender.com/', {
+    const BACKEND_URL = window.location.hostname === 'localhost'
+      ? 'http://localhost:5000'
+      : 'https://dofcodexng.onrender.com';   
+  
+    const response = await fetch(`${BACKEND_URL}/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
