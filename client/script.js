@@ -3,8 +3,43 @@ import user from './assets/user.svg';
 
 const form = document.querySelector('form');
 const chatContainer = document.querySelector('#chat_container');
+const statusIndicator = document.querySelector('#status_indicator');
+const statusDot = document.querySelector('.status-dot');
+const statusText = document.querySelector('.status-text');
 
 let loadInterval;
+
+// Check server health status
+async function checkServerHealth() {
+  try {
+    const BACKEND_URL = window.location.hostname === 'localhost'
+      ? 'http://localhost:5000'
+      : 'https://dofcodexng.onrender.com';
+
+    const response = await fetch(`${BACKEND_URL}/health`);
+    const data = await response.json();
+
+    if (response.ok && data.status === 'ok') {
+      statusDot.classList.add('online');
+      statusDot.classList.remove('offline');
+      statusText.textContent = 'Codex is online ✓';
+    } else {
+      statusDot.classList.add('offline');
+      statusDot.classList.remove('online');
+      statusText.textContent = 'Codex is offline';
+    }
+  } catch (error) {
+    statusDot.classList.add('offline');
+    statusDot.classList.remove('online');
+    statusText.textContent = 'Cannot connect to server';
+  }
+}
+
+// Check health on page load
+checkServerHealth();
+
+// Recheck health every 30 seconds
+setInterval(checkServerHealth, 30000);
 
 function loader(element) {
   element.textContent = '';

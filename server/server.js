@@ -17,6 +17,44 @@ app.get('/', (req, res) => {
   res.status(200).send({ message: 'Hello from MrDofCodeX' });
 });
 
+app.get('/health', async (req, res) => {
+  try {
+    // Check if OpenAI API key is configured
+    if (!process.env.OPENAI_API_KEY) {
+      return res.status(503).send({
+        status: 'error',
+        message: 'OpenAI API key not configured',
+        serverRunning: true,
+        apiConnected: false,
+      });
+    }
+
+    // Test OpenAI API connection with a minimal request
+    const testCompletion = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: 'test' }],
+      max_tokens: 5,
+    });
+
+    res.status(200).send({
+      status: 'ok',
+      message: 'Codex is operational',
+      serverRunning: true,
+      apiConnected: true,
+      timestamp: new Date().toISOString(),
+    });
+  } catch (error) {
+    console.error('Health check failed:', error);
+    res.status(503).send({
+      status: 'error',
+      message: 'Failed to connect to OpenAI API',
+      serverRunning: true,
+      apiConnected: false,
+      error: error.message,
+    });
+  }
+});
+
 app.post('/', async (req, res) => {
   try {
     const { prompt } = req.body;

@@ -96,7 +96,7 @@ h1, p{
 
 .message {
   flex: 1;
-  margin_top: 40px;
+  margin-top: 40px;
   padding: 10px 10px;
   color: #dcdcdc;
   font-size: 20px;
@@ -154,4 +154,47 @@ button {
 form img {
   width: 30px;
   height: 30px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  margin: 10px auto;
+  max-width: fit-content;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #888;
+  animation: pulse 2s infinite;
+}
+
+.status-dot.online {
+  background: #10a37f;
+}
+
+.status-dot.offline {
+  background: #ef4444;
+}
+
+.status-text {
+  color: #dcdcdc;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
